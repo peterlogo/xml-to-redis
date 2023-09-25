@@ -14,7 +14,7 @@ const processSubdomains = async (subdomains: string[]) => {
   await redis.sadd(key, subdomains); // add new subdomains
 };
 
-// Uses Redis Hash to store cookies as a key-value pair
+// Uses Redis Strings to store cookies as a key-value pair
 const processCookies = async (cookie: Cookie[]) => {
   for (const c of cookie) {
     const key = `cookie:${c.$.name}:${c.$.host}`; // get all cookies for this host
